@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+// import Packages
+
+import { userContext } from './Context/UserContext';
+// imported Created Context
+
+import Routing from './Routing';
+import Auth from './Authrization';
+// imported Requried Componenets
 
 function App() {
+//state for the context
+  const [loginData,setLoginData] = useState({
+    username : '',
+    password : '',
+    loggedIn : false
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // Providing the context value to our App
+    <userContext.Provider value={{loginData,setLoginData}}>
+      <div className="App">
+        {/* Use for Authrization */}
+        <Auth />
+
+        {/*  USe for Routing */}
+        <Routing />
+      </div>
+    </userContext.Provider>
   );
 }
 
