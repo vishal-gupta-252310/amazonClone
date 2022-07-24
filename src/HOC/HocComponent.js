@@ -1,24 +1,24 @@
+// imported Packages
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// imported Packages
 
-import { getMoviesFunc } from '../Actions';
 // imported action from reducer
+import { getMoviesFunc } from '../Actions';
 
 /**
- *  creating High Order component to render diffrent component using HOC
+ *  A High Order component to render diffrent component using HOC
  * @param {Node} WrappedComponent
  * @returns  Component
  */
 const HocComponent = (WrappedComponent) => {
     /**
-     * return new Component
+     * return new Component using HOC
      */
     return function HocMovies() {
-        // use useSelector ook to get the state value
+        // use useSelector hook to get the state value
         const movieData = useSelector((state) => state.movieReducer.value);
 
-        // creating dispatch variabe of useDispatch hook
+        // creating dispatch constant
         const dispatch = useDispatch();
         useEffect(() => {
             // dispatching a Action
@@ -26,9 +26,9 @@ const HocComponent = (WrappedComponent) => {
             // dispatch(getMoviesFunc());
         }, [movieData]);
         /**
-         *  A function use to dispatch action after 5 sec
+         *  A function use to dispatch action
          */
-        const actionDispatch = async () => {
+        const actionDispatch = () => {
             dispatch(getMoviesFunc());
         };
         return (

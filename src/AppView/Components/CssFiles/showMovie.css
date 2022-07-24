@@ -1,3 +1,4 @@
+/* main sub-container for the card */
 .media{
     display: flex;
     flex-direction: column;
@@ -9,25 +10,30 @@
     position: relative;
     color: white;
 }
+/* Hover Effect on media  container */
 .media:hover{
     background-color: white;
     color: black;
 }
+/* A poster use to reduce radius */
 .poster{
     border-radius: 10px;
 }
+/* use to style title containner */
 .title{
     width: 100%;
     text-align: center;
     font-size: 17px;
     padding: 8px 0;
 }
+/* sub-container of the title container */
 .subTitle{
     display: flex;
     justify-content: space-between;
     padding-bottom: 3px;
     padding:  0 2px;
 }
+/* the main  conntainer of the card */
 .trending{
     display: flex;
     flex-wrap: wrap;

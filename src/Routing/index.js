@@ -1,15 +1,18 @@
+// imported Packages
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-// imported Packages
 
-import { loginRoute, dashboardRoute, secureRoute } from './RouteVars';
-// imported Route Variables
+// imported Route constant
+import { loginRoute, dashboardRoute, secureRoute } from './RouteConstants';
 
+// imported Required Components
 import Login from '../AppView/Login/Login';
 import Main from '../AppView/Dashboard/Main';
 import Auth from '../Authrization';
-// imported Requred Components
 
+/**
+ * Routing use to Navigate to the different Pages
+ */
 const Routing = () => {
     return (
         <>
@@ -18,6 +21,7 @@ const Routing = () => {
                 {/* login Route */}
                 <Route exact path={loginRoute} element={<Login />} />
 
+                {/* Authrization Route */}
                 <Route exact path={secureRoute} element={<Auth />} />
 
                 {/* dashboard Route */}

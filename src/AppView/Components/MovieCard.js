@@ -1,25 +1,24 @@
+// imported packages
 import React from 'react';
 import PropTypes from 'prop-types';
-// imported packages
 
-import HocComponent from '../HOC/HocComponent';
 //imported High Order Component
+import HocComponent from '../../HOC/HocComponent';
 
-import './CssFiles/showMovie.css';
 //imported css file
+import './CssFiles/showMovie.css';
 
 /**
  * use to render every movie
- * @param {props} param0 the Data Which have to dispay on the Dashboard
+ * @param {props} param0 destructure Data Which have to dispay on the Dashboard
  * @returns
  */
 const MovieCard = ({ data }) => {
-    //destructure props
     return (
         <div className="trending">
+                    // render evry movie using map method
             {data &&
                 data.map((item) => {
-                    // render evry movie using map method
                     return (
                         <div key={item.id} className="media">
                             {/* Displaying the Movie Data */}
@@ -47,7 +46,5 @@ MovieCard.propTypes = {
 /**
  *  Created Component using High Order Component
  */
-
 const Card = HocComponent(MovieCard);
-
 export default Card;

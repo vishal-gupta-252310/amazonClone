@@ -1,6 +1,6 @@
+// imported Requried Packages
 import { React, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-// imported Requried Packages
 
 // To Get the Created Context variable
 import { userContext } from '../../Context/UserContext';
@@ -8,37 +8,38 @@ import { userContext } from '../../Context/UserContext';
 // imported Custom Hook for nameChange
 import useForNameChange from '../../CustomHook/useForNameChange';
 
-// imporing Routes Variable
-import { secureRoute } from '../../Routing/RouteVars';
+// imporing Routes Constants
+import { secureRoute } from '../../Routing/RouteConstants';
 
 /**
  * A Navbar with Logout feature and logo of the App
  *
  */
 const HeaderNav = () => {
-    // Providing the Static Values using Custom Hook
+    // Providing the Static Values using Custom Hook and destructure a funnction
     const { changeName } = useForNameChange('Prince');
 
     // A Variable to Navigate to the page
     const navigate = useNavigate();
 
-    // Get the Context value using Destring
+    // Get the Context value using Destructring
     const useForLogout = useContext(userContext);
     const { loginData, setLoginData } = useForLogout;
     const { username } = loginData;
 
     /**
-     *  A logout feature of the App
+     *  A logout function to handel logout button
      *
      */
     const handelLogout = () => {
-        // Clearing the userDeatis to null
+        // Clearing the userDeatis to empty string
         setLoginData({
             ...loginData,
             username: '',
             password: '',
             loggedIn: false,
         });
+        // navigating to  authrization page
         navigate(secureRoute);
     };
 

@@ -1,28 +1,27 @@
+// imported Packages
 import React from 'react';
 import PropTypes from 'prop-types';
-// imported Packages
 
-import { Carousel } from 'react-responsive-carousel';
 // imported Packeage of the Slidder
+import { Carousel } from 'react-responsive-carousel';
 
-import HocComponent from '../HOC/HocComponent';
 // imported High Order Component
+import HocComponent from '../../HOC/HocComponent';
 
+// imported  css File
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './CssFiles/Slidder.css';
-// imported  css File
 
 /**
  *
- * @param {props} param0 the Data Which have to dispay on the Dashboard
+ * @param {props} param0 destructure Data Which have to dispay on the Dashboard
  * @returns
  */
 function Slidder({ data }) {
-    // destructure the props
     return (
         <Carousel showThumbs={false} infiniteLoop={true} autoplay>
             {
-                // eslint-disable-next-line react/prop-types
+                // display the data using map method
                 data &&
                     data.map((item) => {
                         return (
@@ -49,5 +48,4 @@ Slidder.propTypes = {
  *  use to create component using Hoc
  */
 const HocSlidder = HocComponent(Slidder);
-
 export default HocSlidder;

@@ -1,11 +1,11 @@
+// imported Package
 import { configureStore } from '@reduxjs/toolkit';
-// imported Packages
 
-import combineReducer from '../Reducers/combineReducer';
 // imported Reducer for store
+import combineReducer from './Reducers';
 
 /**
- *  ceating and exporing a store
+ *  A Store to Hold the State of the App
  */
 export const Store = configureStore({
     reducer: combineReducer,

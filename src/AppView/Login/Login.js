@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 // imported Packages
+import React, { useState , useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+// imported Conntext Connstants
 import { userContext } from '../../Context/UserContext';
-// imported Created Context
 
-import { dashboardRoute } from '../../Routing/RouteVars';
-// imported Route Variables
+// imported Route Constant
+import { dashboardRoute } from '../../Routing/RouteConstants';
 
+// imported Masseges
 import { loginFailMsg } from '../../Masseges';
-import { adminUser, adminPass } from '../../AdminDetail';
-// imported Masseges and UserDetails
 
-import './Login.css';
+// immported User details
+import { adminUser, adminPass } from '../../AdminDetail';
+
 // imporing css file
+import './Login.css';
 
 /**
  *  Use for Login In the App
  *
  */
 const Login = () => {
-    // a Variable for Navigate to the different Page
+    // a Constant for Navigate to the different Page
     const navigate = useNavigate();
 
-    // states of this Component
+    // states 
     const [loginUser, setLoginUser] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
 
@@ -34,7 +35,7 @@ const Login = () => {
 
     /**
      * On submit the data in Context to go Dashboard of the App
-     * @param {object} event is use for prevent refresh
+     * @param {object} event is use for prevent refresh of the page
      */
     const handelSubmit = (event) => {
         // prevent page refreshing on submit
@@ -59,6 +60,7 @@ const Login = () => {
 
     return (
         <div className="login">
+        
             {/* Form for Login */}
             <form onSubmit={handelSubmit}>
                 <div className="mb-3">

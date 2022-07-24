@@ -1,3 +1,4 @@
+// A constant of popular movies
 const popularMovies = {
     movies: [
         {
