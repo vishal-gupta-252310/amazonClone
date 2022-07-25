@@ -1,6 +1,8 @@
+/* A body of the login Component */
 body{
     background-color: #36454F;
 }
+/* use to style the login conntainer */
 .login{
     width: 15%;
     margin-top: 18%;

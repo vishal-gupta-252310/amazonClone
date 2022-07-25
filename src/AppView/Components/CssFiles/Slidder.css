@@ -1,6 +1,8 @@
+/* sub-container of Slidder */
 .posterOfSlidder{
     height: 600px;
 }
+/* mainn container of slidder */
 .mainDivOfSlidder{
     height: 600px;
 }

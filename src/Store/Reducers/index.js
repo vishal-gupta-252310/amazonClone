@@ -1,14 +1,14 @@
-import movieReducer from './movieReducer';
-// importing created Reducer
-
-import { combineReducers } from 'redux';
 // importing Package
+import { combineReducers } from 'redux';
+
+// importing created Reducer
+import movieReducer from './MovieReducer';
 
 /**
  *  Use to Combine Multiple Reducers
  */
 const combineReducer = combineReducers({
-    movieReducer,
+  movieReducer,
 });
 
 export default combineReducer;

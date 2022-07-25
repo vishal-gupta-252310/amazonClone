@@ -1,30 +1,30 @@
-import { useContext } from 'react';
 // imported Package
+import { useContext } from 'react';
 
-import { userContext } from '../Context/UserContext';
-// Immported created Context Variable
+// Imported Context constant
+import userContext from '../Context/UserContext';
 
 /**
- *  use to update the username in Context  using custom hook
- * @param {string} nameForChange
- * @returns
+    *  use to update the username in Context  using custom hook
+    * @param {string}  use to provide  name
+    * @returns
  */
+
 const useForNameChange = (nameForChange) => {
-    // Get the Context Value using deestructuring
-    const useForNameChange = useContext(userContext);
-    const { loginData, setLoginData } = useForNameChange;
+  // Get the Context Value using destructuring
+  const contextData = useContext(userContext);
+  const { loginData, setLoginData } = contextData;
 
-    /**
-     *
-     * @returns A function to change Name
-     */
-    const changeName = () =>
-        setLoginData({
-            ...loginData,
-            username: nameForChange,
-        });
+  /**
+ * @returns A function to change Name
+ */
 
-    return { changeName };
+  const changeName = () => setLoginData({
+    ...loginData,
+    username: nameForChange,
+  });
+  // return a function
+  return { changeName };
 };
 
 export default useForNameChange;

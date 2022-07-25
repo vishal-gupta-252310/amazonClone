@@ -1,7 +1,10 @@
+// imported Package
 import { createContext } from 'react';
-//imported Package
 
 /**
- *  creating the context variable
+ *  creating the context constant
  */
-export const userContext = createContext();
+
+const userContext = createContext();
+
+export default userContext;

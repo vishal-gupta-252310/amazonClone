@@ -1,33 +1,33 @@
+// imported Packages
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// imported Packages
 
-import { loginRoute, dashboardRoute } from '../Routing/RouteVars';
+//  imported Required Routes Constants
+import { loginRoute, dashboardRoute } from '../Routing/RouteConstants';
 
-import { userContext } from '../Context/UserContext';
-// imported Created Context Variable
+// imported Context Constant
+import userContext from '../Context/UserContext';
 
 /**
  *
  *  Auth is use to Provide Authantication in app
  */
 const Auth = () => {
-    // a variable to navigate to the Pages
-    const navigate = useNavigate();
+  // a constant to navigate to the Pages
+  const navigate = useNavigate();
 
-    // Get the Context Value using destructring
-    const contextData = useContext(userContext);
-    const { loginData } = contextData;
+  // Get the Context Value using destructring
+  const contextData = useContext(userContext);
+  const { loginData } = contextData;
 
-    useEffect(() => {
-        if (loginData.loggedIn === true) {
-            // navigate to dashboard page
-            navigate(dashboardRoute);
-            return;
-        }
-        // Navigating to login page
-        navigate(loginRoute);
-    }, [loginData.loggedIn]);
-    // Checking the logged in user
+  useEffect(() => {
+    if (loginData.loggedIn === true) {
+      // navigate to dashboard page
+      navigate(dashboardRoute);
+      return;
+    }
+    // navigate to login page
+    navigate(loginRoute);
+  }, [loginData.loggedIn]);
 };
 export default Auth;
