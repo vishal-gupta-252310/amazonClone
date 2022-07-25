@@ -13,22 +13,20 @@ import Auth from '../Authrization';
 /**
  * Routing use to Navigate to the different Pages
  */
-const Routing = () => {
-    return (
-        <>
-            {/* Creating Routes for the App */}
-            <Routes>
-                {/* login Route */}
-                <Route exact path={loginRoute} element={<Login />} />
 
-                {/* Authrization Route */}
-                <Route exact path={secureRoute} element={<Auth />} />
+const Routing = () => (
+  <>
+    {/* Creating Routes for the App */}
+    <Routes>
+      {/* login Route */}
+      <Route exact path={loginRoute} element={<Login />} />
 
-                {/* dashboard Route */}
-                <Route path={dashboardRoute} element={<Main />} />
-            </Routes>
-        </>
-    );
-};
+      {/* Authrization Route */}
+      <Route exact path={secureRoute} element={<Auth />} />
 
+      {/* dashboard Route */}
+      <Route path={dashboardRoute} element={<Main />} />
+    </Routes>
+  </>
+);
 export default Routing;

@@ -3,9 +3,9 @@ import { getMovieData } from '../../Actions';
 
 // Creating Initial Value for Reducer
 const initialState = {
-    value: {
-         movies: []
-        },
+  value: {
+    movies: [],
+  },
 };
 
 /**
@@ -14,16 +14,17 @@ const initialState = {
  * @param {function} action A type of action
  * @returns
  */
-const movieReducer = (state = initialState, action) => {
-    // Handling Action using Switch
-    switch (action.type) {
-        case getMovieData:
-            return {
-                ...state,
-                value: action.payload,
-            };
-        default:
-            return state;
-    }
+
+const movieReducer = (state = initialState, action = {}) => {
+  // Handling Action using Switch
+  switch (action.type) {
+    case getMovieData:
+      return {
+        ...state,
+        value: action.payload,
+      };
+    default:
+      return state;
+  }
 };
 export default movieReducer;

@@ -2,46 +2,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//imported High Order Component
+// imported High Order Component
 import HocComponent from '../../HOC/HocComponent';
 
-//imported css file
+// imported css file
 import './CssFiles/showMovie.css';
 
 /**
  * use to render every movie
- * @param {props} param0 destructure Data Which have to dispay on the Dashboard
- * @returns
+ * @param {object}  Data Which need to dispay on the Dashboard
+ * @returns A node
  */
-const MovieCard = ({ data }) => {
-    return (
-        <div className="trending">
-                    // render evry movie using map method
-            {data &&
-                data.map((item) => {
-                    return (
-                        <div key={item.id} className="media">
-                            {/* Displaying the Movie Data */}
-                            <img
-                                src={item.posterUrl}
-                                alt={item.title}
-                                style={{ width: '300px', height: '450px' }}
-                                className="poster"
-                            />
-                            <b className="title">{item.title}</b>
-                            <span className="subTitle">
-                                {item.director}
-                                <span className="subTitle">{item.year}</span>
-                            </span>
-                        </div>
-                    );
-                })}
-        </div> // trending End
-    );
+const MovieCard = (props) => {
+  const { data } = props;
+  return (
+    <div className="trending">
+      {/* render evry movie using map method */}
+      {data
+                && data.map((item) => (
+                  <div key={item.id} className="media">
+                    {/* Displaying the Movie Data */}
+                    <img
+                      src={item.posterUrl}
+                      alt={item.title}
+                      style={{ width: '300px', height: '450px' }}
+                      className="poster"
+                    />
+                    <b className="title">{item.title}</b>
+                    <span className="subTitle">
+                      {item.director}
+                      <span className="subTitle">{item.year}</span>
+                    </span>
+                  </div>
+                ))}
+    </div> // trending End
+  );
 };
 // validating props
 MovieCard.propTypes = {
-    data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf.isRequired,
 };
 /**
  *  Created Component using High Order Component

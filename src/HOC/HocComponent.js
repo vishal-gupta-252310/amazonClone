@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // imported action from reducer
-import { getMoviesFunc } from '../Actions';
+import getMoviesFunc from '../Store/Actions/index';
 
 /**
  *  A High Order component to render diffrent component using HOC
@@ -11,32 +11,29 @@ import { getMoviesFunc } from '../Actions';
  * @returns  Component
  */
 const HocComponent = (WrappedComponent) => {
-    /**
-     * return new Component using HOC
-     */
-    return function HocMovies() {
-        // use useSelector hook to get the state value
-        const movieData = useSelector((state) => state.movieReducer.value);
+  // eslint-disable-next-line no-unused-vars
+  const HocMovies = () => {
+  // use useSelector hook to get the state value
+    const movieData = useSelector((state) => state.movieReducer.value);
 
-        // creating dispatch constant
-        const dispatch = useDispatch();
-        useEffect(() => {
-            // dispatching a Action
-            actionDispatch();
-            // dispatch(getMoviesFunc());
-        }, [movieData]);
-        /**
+    // creating dispatch constant
+    const dispatch = useDispatch();
+    const actionDispatch = () => {
+      dispatch(getMoviesFunc());
+    };
+    useEffect(() => {
+    // dispatching a Action
+      actionDispatch();
+    // dispatch(getMoviesFunc());
+    }, []);
+    /**
          *  A function use to dispatch action
          */
-        const actionDispatch = () => {
-            dispatch(getMoviesFunc());
-        };
-        return (
-            <div>
-                <WrappedComponent data={movieData.movies}></WrappedComponent>
-            </div>
-        );
-    };
+    return (
+      <div>
+        <WrappedComponent data={movieData.movies} />
+      </div>
+    );
+  };
 };
-
 export default HocComponent;

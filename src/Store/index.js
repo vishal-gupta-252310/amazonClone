@@ -7,6 +7,8 @@ import combineReducer from './Reducers';
 /**
  *  A Store to Hold the State of the App
  */
-export const Store = configureStore({
-    reducer: combineReducer,
+const Store = configureStore({
+  reducer: combineReducer,
 });
+
+export default Store;

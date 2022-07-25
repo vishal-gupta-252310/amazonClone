@@ -5,9 +5,9 @@ import popularMovies from '../../FakeApi/PopularMovie';
 export const getMovieData = 'GETMOVIES';
 
 // Creating A Variable for Action
-export const getMoviesFunc = () => {
-    return {
-        type: getMovieData,
-        payload: popularMovies,
-    };
-};
+const getMoviesFunc = () => ({
+  type: getMovieData,
+  payload: popularMovies,
+});
+
+export default getMoviesFunc;

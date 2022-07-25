@@ -13,35 +13,35 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './CssFiles/Slidder.css';
 
 /**
- *
- * @param {props} param0 destructure Data Which have to dispay on the Dashboard
- * @returns
+ * Add two numbers.
+ * @param {object} props The Data ehich needs to display.
+ * @returns {number} The sum of the two numbers.
  */
-function Slidder({ data }) {
-    return (
-        <Carousel showThumbs={false} infiniteLoop={true} autoplay>
-            {
+const Slidder = (props) => {
+  const { data } = props;
+  return (
+    <Carousel showThumbs={false} infiniteLoop autoplay>
+      {
                 // display the data using map method
-                data &&
-                    data.map((item) => {
-                        return (
-                            <div className="mainDivOfSlidder" key={item.id}>
-                                {/* displaying the data in Slidder */}
-                                <img
-                                    className="posterOfSlidder"
-                                    src={item.posterUrl}
-                                />
-                                <h3 className="legend">{item.title}</h3>
-                            </div> // mainDivOfSlidder end
-                        );
-                    })
+                data
+                    && data.map((item) => (
+                      <div className="mainDivOfSlidder" key={item.id}>
+                        {/* displaying the data in Slidder */}
+                        <img
+                          className="posterOfSlidder"
+                          src={item.posterUrl}
+                          alt={item.title}
+                        />
+                        <h3 className="legend">{item.title}</h3>
+                      </div> // mainDivOfSlidder end
+                    ))
             }
-        </Carousel>
-    );
-}
+    </Carousel>
+  );
+};
 // validating props
 Slidder.propTypes = {
-    data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf.isRequired,
 };
 
 /**

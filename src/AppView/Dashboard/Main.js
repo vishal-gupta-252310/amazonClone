@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // imported Context constant
-import { userContext } from '../../Context/UserContext';
+import userContext from '../../Context/UserContext';
 
 // imported Reqiured Components
 import HeaderNav from '../Navbar/HeaderNav';
@@ -18,30 +18,30 @@ import { secureRoute } from '../../Routing/RouteConstants';
  *
  */
 const Main = () => {
-    // a constant to navigate to the Pages
-    const navigate = useNavigate();
+  // a constant to navigate to the Pages
+  const navigate = useNavigate();
 
-    // Get the Context Value using destructring
-    const contextData = useContext(userContext);
-    const { loginData } = contextData;
-    /**
+  // Get the Context Value using destructring
+  const contextData = useContext(userContext);
+  const { loginData } = contextData;
+  /**
      *  use to provide Authrization
      */
-    if (loginData.loggedIn === false) {
-        navigate(secureRoute);
-    }
-    return (
-        <div>
-            {/* Navbar Component */}
-            <HeaderNav />
+  if (loginData.loggedIn === false) {
+    navigate(secureRoute);
+  }
+  return (
+    <>
+      {/* Navbar Component */}
+      <HeaderNav />
 
-            {/* Slidder Component */}
-            <HocSlidder />
+      {/* Slidder Component */}
+      <HocSlidder />
 
-            {/* MovieCard Component */}
-            <Card />
-        </div>
-    );
+      {/* MovieCard Component */}
+      <Card />
+    </>
+  );
 };
 
 export default Main;
